@@ -1,0 +1,23 @@
+:root{
+  --hairline:1px solid var(--rule);
+  --hairline-strong:1px solid var(--near-black);
+  --border-w:1px;
+  --border-w-thick:2px;
+
+  /* Minimal radii only. Nothing is pill-shaped. */
+  --radius-0:0px;
+  --radius-1:2px;   /* buttons, inputs, tags */
+  --radius-2:4px;   /* cards, panels */
+
+  /* Shadows are near-absent. Depth comes from hairlines. */
+  --shadow-none:none;
+  --shadow-flat:0 1px 0 var(--rule);
+  --shadow-lift:0 8px 24px rgba(12,12,12,0.08);
+  --glow-green:0 0 80px 0 rgba(40,180,75,0.35);
+
+  --focus-ring:0 0 0 2px var(--white),0 0 0 4px var(--green);
+  --ease:cubic-bezier(0.2,0,0.2,1);
+  --dur-fast:120ms;
+  --dur:180ms;
+  --dur-slow:320ms;
+}

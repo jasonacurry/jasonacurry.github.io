@@ -1,0 +1,158 @@
+/* curry.co homepage — implements "Jason Curry.dc.html" on the Xerg design system.
+   Loaded after ds/styles.css; the overrides below match the design's helmet block. */
+
+body {
+  margin: 0;
+  background: var(--white); /* design prop: ground = #FFFFFF */
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* The design swaps base.css's border-bottom links for a true underline. */
+a {
+  color: var(--near-black);
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--gray-mid);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms var(--ease);
+}
+a:hover {
+  color: var(--near-black);
+  text-decoration-color: var(--green);
+}
+a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  text-decoration-color: var(--green);
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+.shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-9) var(--space-5) var(--space-8);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.headshot {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 220px;
+}
+
+.identity h1 {
+  margin: 0;
+  font-size: var(--fs-headline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-display);
+}
+
+.role {
+  margin: 0;
+  font-size: var(--fs-body);
+  color: var(--text-secondary);
+  line-height: var(--lh-body);
+}
+
+/* ---- Rules ---- */
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: var(--space-7) 0;
+}
+
+.rule--footer {
+  margin: var(--space-9) 0 var(--space-5);
+}
+
+/* ---- Sections ---- */
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.block + .block {
+  margin-top: var(--space-8);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--tracking-mono-wide);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.lede {
+  margin: 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+.prose {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.prose--secondary {
+  color: var(--text-secondary);
+}
+
+/* ---- Footer ---- */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-mono);
+}
+
+.contact .caps {
+  text-transform: uppercase;
+}
+
+.contact .sep {
+  color: var(--gray-mid);
+}

@@ -1,0 +1,32 @@
+:root{
+  --font-sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-bold:700;
+
+  /* Display / headline scale — set tight */
+  --fs-display-1:120px;
+  --fs-display-2:88px;
+  --fs-display-3:64px;
+  --fs-headline:44px;
+  --fs-title:32px;
+  --fs-subtitle:24px;
+  --fs-body-lg:20px;
+  --fs-body:16px;
+  --fs-caption:14px;
+  --fs-micro:12px;
+  --fs-nano:10px;
+
+  --lh-display:1.05;
+  --lh-headline:1.1;
+  --lh-body:1.45;
+  --lh-flat:1;
+
+  --tracking-display:-0.02em;  /* approx -2% on headlines */
+  --tracking-title:-0.015em;
+  --tracking-body:0;
+  --tracking-mono:0.06em;      /* ALL-CAPS mono labels */
+  --tracking-mono-wide:0.12em;
+}

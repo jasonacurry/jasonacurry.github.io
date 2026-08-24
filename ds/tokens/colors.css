@@ -1,0 +1,49 @@
+:root{
+  /* ---- Base palette (exact, no substitutions) ---- */
+  --white:#FFFFFF;
+  --gray-light:#EDEDED;   /* page ground for light layouts */
+  --gray-mid:#CECECE;     /* hairlines, hatch strokes, secondary rules */
+  --gray-dark:#2D2D2D;    /* secondary text on light ground */
+  --near-black:#0C0C0C;   /* headlines, dark ground */
+  --green:#28B44B;        /* CTA fill, accents — the only color */
+
+  /* Logo-only gradient stops. Never use as UI fill. */
+  --logo-green-deep:#124D2F;
+  --logo-green:#2AB36C;
+
+  /* ---- Semantic: light ground ---- */
+  --surface-page:var(--gray-light);
+  --surface-raised:var(--white);
+  --surface-sunken:#E4E4E4;
+  --text-primary:var(--near-black);
+  --text-secondary:var(--gray-dark);
+  --text-inverse:var(--white);
+  --rule:var(--gray-mid);
+  --rule-strong:var(--near-black);
+
+  /* ---- Semantic: dark ground ---- */
+  --surface-page-dark:var(--near-black);
+  --surface-raised-dark:#161616;
+  --text-primary-dark:var(--white);
+  --text-secondary-dark:var(--gray-mid);
+  --rule-dark:#2D2D2D;
+
+  /* ---- Accent / action ---- */
+  --accent:var(--green);
+  --accent-hover:#22A043;
+  --accent-press:#1C8938;
+  --accent-quiet:rgba(40,180,75,0.12);
+  --on-accent:var(--white);
+
+  /* ---- Data semantics (cost readouts) ---- */
+  --cost-leak:var(--green);         /* money found / savings */
+  --cost-spend:var(--near-black);   /* neutral spend figures */
+}
+[data-ground="dark"]{
+  --surface-page:var(--surface-page-dark);
+  --surface-raised:var(--surface-raised-dark);
+  --text-primary:var(--text-primary-dark);
+  --text-secondary:var(--text-secondary-dark);
+  --rule:var(--rule-dark);
+  --rule-strong:var(--gray-mid);
+}
