@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ground="light" data-mode="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,23 +15,41 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@jasonacurry">
 
+    <script src="home.js"></script>
     <link rel="icon" href="headshot.webp" type="image/webp">
     <link rel="stylesheet" href="ds/styles.css">
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
 <div class="page">
+    <div class="shade" id="shade" aria-hidden="true" hidden></div>
+    <div class="mode-switcher" role="group" aria-label="Appearance" hidden>
+        <button type="button" data-mode="light" aria-label="Light" title="Light" aria-pressed="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.28 5.28l1.77 1.77M16.95 16.95l1.77 1.77M5.28 18.72l1.77-1.77M16.95 7.05l1.77-1.77"/>
+            </svg>
+        </button>
+        <button type="button" data-mode="dark" aria-label="Dark" title="Dark" aria-pressed="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>
+            </svg>
+        </button>
+        <button type="button" data-mode="shade" aria-label="In the shade" title="In the shade" aria-pressed="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21v-7M12 14c-4.5 0-7-2.4-7-5.5S7.6 3 12 3s7 2.4 7 5.5-2.5 5.5-7 5.5zM12 14l-3-3M12 12l2.5-2.5"/>
+            </svg>
+        </button>
+    </div>
     <main class="shell">
 
         <header class="masthead">
-            <img class="headshot" src="headshot.webp" width="88" height="88" alt="Jason Curry">
+            <img class="headshot" src="avatar.png" width="88" height="88" alt="Jason Curry">
             <div class="identity">
                 <h1>Jason Curry</h1>
                 <p class="role">Co-founder &amp; CEO, <a href="https://xerg.ai">Xerg</a></p>
             </div>
         </header>
-
-        <hr class="rule">
 
         <section class="block">
             <span class="label">Now building</span>
@@ -45,21 +63,19 @@
 
         <section class="block">
             <span class="label">Now</span>
-            <p class="prose">All of my work is Xerg. If you're running AI agents in production and want to know where the money goes, <a href="https://xerg.ai">start here</a>.</p>
+            <p class="prose">All of my work is Xerg. If you're running AI agents in production and want to know where the money goes, <a class="cta" href="https://xerg.ai">start here →</a></p>
         </section>
 
-        <hr class="rule rule--footer">
-
         <footer class="contact">
-            <nav>
+            <nav aria-label="Contact and social links">
                 <a class="caps" href="https://www.linkedin.com/in/jasonacurry/">LinkedIn</a>
-                <span class="sep">·</span>
+                <span class="sep" aria-hidden="true">·</span>
                 <a class="caps" href="https://x.com/jasonacurry">X</a>
-                <span class="sep">·</span>
+                <span class="sep" aria-hidden="true">·</span>
                 <a class="caps" href="https://github.com/jasonacurry">GitHub</a>
-                <span class="sep">·</span>
+                <span class="sep" aria-hidden="true">·</span>
                 <a class="caps" href="https://www.instagram.com/jasoncurry/">Instagram</a>
-                <span class="sep">·</span>
+                <span class="sep" aria-hidden="true">·</span>
                 <a href="mailto:jason@xerg.ai">jason@xerg.ai</a>
             </nav>
         </footer>

@@ -1,72 +1,88 @@
-/* curry.co homepage — implements "Jason Curry.dc.html" on the Xerg design system.
-   Loaded after ds/styles.css; the overrides below match the design's helmet block. */
+/* Jason Curry redesign, using the supplied Xerg design-system tokens. */
+:root {
+  color-scheme: light;
+}
+
+:root[data-ground="dark"] {
+  color-scheme: dark;
+}
 
 body {
   margin: 0;
-  background: var(--white); /* design prop: ground = #FFFFFF */
+  background: var(--surface-page);
   color: var(--text-primary);
   font-family: var(--font-sans);
 }
 
-/* The design swaps base.css's border-bottom links for a true underline. */
-a {
-  color: var(--near-black);
+/* Override the design system's border-based links in both color modes. */
+.page a {
+  color: inherit;
   border-bottom: 0;
   text-decoration: underline;
-  text-decoration-color: var(--gray-mid);
+  text-decoration-color: var(--rule);
   text-underline-offset: 3px;
-  transition: text-decoration-color 150ms var(--ease);
+  transition: text-decoration-color 160ms var(--ease);
 }
-a:hover {
-  color: var(--near-black);
+
+.page a:hover {
+  color: inherit;
   text-decoration-color: var(--green);
 }
-a:focus-visible {
+
+.page a:focus-visible,
+.mode-switcher button:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 3px;
+}
+
+.page .cta,
+.page .cta:hover {
+  color: var(--green);
   text-decoration-color: var(--green);
 }
 
 .page {
+  position: relative;
   min-height: 100vh;
-  background: var(--white);
+  background: var(--surface-page);
+  transition: background-color 320ms var(--ease), color 320ms var(--ease);
 }
 
 .shell {
-  max-width: 640px;
+  position: relative;
+  max-width: 592px;
   margin: 0 auto;
-  padding: var(--space-9) var(--space-5) var(--space-8);
-  display: flex;
-  flex-direction: column;
+  padding: var(--space-10) var(--space-7) var(--space-9);
 }
-
-/* ---- Header ---- */
 
 .masthead {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-5);
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid var(--rule);
 }
 
 .headshot {
+  display: block;
   width: 88px;
   height: 88px;
-  flex: 0 0 auto;
+  flex: none;
+  border: 1px solid var(--rule);
   border-radius: 50%;
   object-fit: cover;
-  display: block;
 }
 
 .identity {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  min-width: 220px;
+  min-width: 0;
 }
 
 .identity h1 {
   margin: 0;
+  color: var(--text-primary);
   font-size: var(--fs-headline);
   font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-display);
@@ -75,47 +91,44 @@ a:focus-visible {
 
 .role {
   margin: 0;
-  font-size: var(--fs-body);
   color: var(--text-secondary);
+  font-size: var(--fs-body);
   line-height: var(--lh-body);
 }
-
-/* ---- Rules ---- */
-
-.rule {
-  height: 1px;
-  background: var(--rule);
-  border: 0;
-  margin: var(--space-7) 0;
-}
-
-.rule--footer {
-  margin: var(--space-9) 0 var(--space-5);
-}
-
-/* ---- Sections ---- */
 
 .block {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
+  padding-top: 48px;
 }
 
 .block + .block {
-  margin-top: var(--space-8);
+  padding-top: var(--space-8);
 }
 
 .label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: var(--tracking-mono-wide);
   text-transform: uppercase;
-  color: var(--text-secondary);
+}
+
+.label::before {
+  content: "";
+  width: 10px;
+  height: 1px;
+  background: currentColor;
 }
 
 .lede {
   margin: 0;
   font-size: var(--fs-body-lg);
+  letter-spacing: -0.01em;
   line-height: var(--lh-body);
   text-wrap: pretty;
 }
@@ -131,19 +144,18 @@ a:focus-visible {
   color: var(--text-secondary);
 }
 
-/* ---- Footer ---- */
-
 .contact {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  margin-top: var(--space-9);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--rule);
 }
 
 .contact nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
   letter-spacing: var(--tracking-mono);
@@ -154,5 +166,133 @@ a:focus-visible {
 }
 
 .contact .sep {
-  color: var(--gray-mid);
+  color: var(--rule);
+}
+
+.mode-switcher {
+  position: fixed;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 10;
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--surface-raised);
+}
+
+.mode-switcher[hidden],
+.shade[hidden] {
+  display: none;
+}
+
+.mode-switcher button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 160ms var(--ease), color 160ms var(--ease);
+}
+
+.mode-switcher button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--surface-page);
+}
+
+.shade {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.shade-layer {
+  position: absolute;
+  inset: -10%;
+  animation: drift var(--duration) ease-in-out infinite alternate;
+}
+
+.shade-branch,
+.shade-twig,
+.shade-leaf {
+  position: absolute;
+  transform: rotate(var(--a));
+  animation: sway var(--duration) var(--delay) ease-in-out infinite alternate;
+}
+
+.shade-branch,
+.shade-twig {
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+}
+
+.shade-twig {
+  top: 0;
+}
+
+.shade-stem,
+.shade-leaf {
+  background: rgb(28, 36, 30);
+}
+
+.shade-stem {
+  position: absolute;
+  left: 0;
+}
+
+@keyframes sway {
+  from { transform: rotate(calc(var(--a) - var(--s))); }
+  to { transform: rotate(calc(var(--a) + var(--s))); }
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(18px, 10px); }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    padding-right: var(--space-5);
+    padding-left: var(--space-5);
+  }
+
+  .masthead {
+    flex-wrap: wrap;
+  }
+
+  .identity h1 {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+}
+
+@media (pointer: coarse) {
+  .mode-switcher button {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page,
+  .page a,
+  .mode-switcher button {
+    transition: none;
+  }
+
+  .shade-layer,
+  .shade-branch,
+  .shade-twig,
+  .shade-leaf {
+    animation: none;
+  }
 }
